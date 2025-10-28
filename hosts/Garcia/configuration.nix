@@ -33,13 +33,11 @@
   # Gaming - Steam
   programs.steam.enable = true;
 
-  # Bootloader
+  # Bootloader - BIOS mode for VM: CHANGE THIS FOR NEW MACHINE INSTALL
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;
-  boot.loader.grub.devices = ["nodev"];
-  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
   # Timezone
