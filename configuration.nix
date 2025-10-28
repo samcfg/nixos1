@@ -15,6 +15,8 @@
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -99,6 +101,7 @@
   environment.systemPackages = with pkgs; [
     vscodium
     git
+    gh
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
