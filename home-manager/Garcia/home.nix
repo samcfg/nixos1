@@ -26,8 +26,8 @@ home.file.".config/noisetorch/config.toml" = {
 
 
 
-  home.username = "Garcia";
-  home.homeDirectory = "/home/Garcia";
+  home.username = "sam";
+  home.homeDirectory = "/home/sam";
 
   home.file.".config/wallpapers" = {
     source = ./wallpapers;

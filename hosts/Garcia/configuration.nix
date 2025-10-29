@@ -139,9 +139,9 @@
   };
 
   # User account
-  users.users.Garcia = {
+  users.users.sam = {
     isNormalUser = true;
-    description = "Garcia";
+    description = "sam";
     initialPassword = "1241";
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "power" "docker" ];
     packages = with pkgs; [

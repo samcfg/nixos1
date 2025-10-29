@@ -76,7 +76,7 @@ in
       exec-once = ${pkgs.kdePackages.polkit-kde-agent-1}
       exec-once = hyprsunset
       exec-once = ${pkgs.dbus}/bin/dbus-update-activation-environment --systemd --all
-      exec-once = /home/Garcia/dev/discord-rpc-lsp/discord-rpc-lsp
+      exec-once = /home/sam/dev/discord-rpc-lsp/discord-rpc-lsp
 
     '';
 
