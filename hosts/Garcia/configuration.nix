@@ -1,5 +1,4 @@
 # Garcia host configuration - Hyprland desktop from nixos-a
-
 {pkgs, ...}:
 
 {
@@ -143,6 +142,7 @@
   users.users.Garcia = {
     isNormalUser = true;
     description = "Garcia";
+    initialPassword = "1241";
     extraGroups = [ "wheel" "networkmanager" "audio" "video" "power" "docker" ];
     packages = with pkgs; [
       tree
