@@ -15,7 +15,7 @@
     lazygit
     bat
     gcc
-    vscode
+    # vscode  # Removed - using vscodium instead (configured in vscodium.nix)
     gh
     taplo
     pyright
