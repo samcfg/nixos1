@@ -7,12 +7,12 @@
     extensions = with pkgs.vscode-extensions; [
       # Language support
       jnoortheen.nix-ide              # Nix language support
-      ms-python.python                # Python
-      rust-lang.rust-analyzer         # Rust
+      # ms-python.python              # Python (removed - conflicts with vscodium)
+      # rust-lang.rust-analyzer       # Rust (removed - may conflict)
 
       # Utilities
-      eamodio.gitlens                 # Git integration
-      vscodevim.vim                   # Vim keybindings
+      # eamodio.gitlens               # Git integration (removed - may conflict)
+      # vscodevim.vim                 # Vim keybindings (removed - may conflict)
 
       # Themes
       catppuccin.catppuccin-vsc       # Catppuccin theme
