@@ -7,6 +7,7 @@
     ./rofi.nix
     ./waybar.nix
     ./dunst.nix
+    ./vscodium.nix
   ];
 
     nixpkgs.config.allowUnfree = true;
