@@ -18,6 +18,7 @@
 
   # Host-specific settings
   networking.hostName = "nas-server-vm";
+  networking.hostId = "a1b2c3d4";  # Required for ZFS - prevents pool import conflicts
 
   # Bootloader - VM-specific (likely /dev/sda for VirtualBox/VMware)
   # Update this after VM installation to match your VM's boot disk

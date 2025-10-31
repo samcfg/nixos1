@@ -8,21 +8,23 @@
     openFirewall = true;    # Automatically opens required firewall ports
 
     # Global Samba settings
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = NAS Server
-      security = user
-      guest account = nobody
-      map to guest = bad user
+    settings = {
+      global = {
+        workgroup = "WORKGROUP";
+        "server string" = "NAS Server";
+        security = "user";
+        "guest account" = "nobody";
+        "map to guest" = "bad user";
 
-      # Performance tuning
-      socket options = TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=524288 SO_SNDBUF=524288
-      read raw = yes
-      write raw = yes
-      max xmit = 65535
-      dead time = 15
-      getwd cache = yes
-    '';
+        # Performance tuning
+        "socket options" = "TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=524288 SO_SNDBUF=524288";
+        "read raw" = "yes";
+        "write raw" = "yes";
+        "max xmit" = 65535;
+        "dead time" = 15;
+        "getwd cache" = "yes";
+      };
+    };
 
     # Define shares (add after ZFS setup)
     shares = {
