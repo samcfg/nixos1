@@ -5,6 +5,9 @@
   # Enable ZFS support
   boot.supportedFilesystems = [ "zfs" ];
 
+  # Auto-import ZFS pools on boot
+  boot.zfs.extraPools = [ "tank" ];
+
   # Automatic scrubbing - checks data integrity weekly
   services.zfs.autoScrub = {
     enable = true;
@@ -27,10 +30,6 @@
   # For physical server:
   #   sudo zpool create tank /dev/disk/by-id/your-disk-id
   #
-  # Then create datasets with mount points:
-  #   sudo zfs create -o mountpoint=/tank/storage tank/storage
-  #   sudo zfs create -o mountpoint=/tank/storage/sam tank/storage/sam
-  #   sudo chown sam:users /tank/storage/sam
-  #
-  # ZFS will auto-mount on boot. No NixOS fileSystems entries needed.
+  # After creating the pool, ZFS will auto-import and auto-mount on boot
+  # thanks to boot.zfs.extraPools configuration above
 }
