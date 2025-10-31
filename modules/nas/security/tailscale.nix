@@ -16,8 +16,8 @@
     # useRoutingFeatures = "server";  # If you want this to be an exit node
   };
 
-  # Ensure Tailscale can access the network
-  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+  # Tailscale trusted interface is configured in firewall.nix
+  # This keeps all firewall rules in one place
 
   # Allow Tailscale to manage routes
   networking.firewall.checkReversePath = "loose";

@@ -28,7 +28,7 @@
       # 21027 # Syncthing discovery broadcast
     ];
 
-    # Tailscale works through its own interface, doesn't need firewall rules
-    # It bypasses these rules via the tailscale0 interface
+    # Trust all traffic from Tailscale VPN interface
+    trustedInterfaces = [ "tailscale0" ];
   };
 }
