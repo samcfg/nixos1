@@ -29,14 +29,14 @@
     # Define shares (add after ZFS setup)
     shares = {
       # Sam's personal files
-      # sam = {
-      #   path = "/tank/storage/sam";
-      #   browseable = "yes";
-      #   writable = "yes";
-      #   "valid users" = "sam";
-      #   "create mask" = "0644";
-      #   "directory mask" = "0755";
-      # };
+      sam = {
+        path = "/tank/sam";
+        browseable = "yes";
+        writable = "yes";
+        "valid users" = "sam";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
 
       # Shared family folder (example)
       # shared = {
