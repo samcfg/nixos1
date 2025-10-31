@@ -17,11 +17,13 @@
 
   # Host-specific settings
   networking.hostName = "nas-server";
+  networking.hostId = "fedcba98";  # Required for ZFS - different from VM to prevent conflicts
 
-  # Bootloader - CHANGE THIS for your actual hardware
+  # Bootloader - Legacy BIOS (GA-EP45-UD3P motherboard)
+  # Will likely be /dev/sda for your physical hardware, verify after installation
   boot.loader.grub = {
     enable = true;
-    device = "/dev/sda";  # Update this to match your boot disk
+    device = "/dev/sda";  # Update after checking 'lsblk' on physical server
   };
 
   # Enable flakes

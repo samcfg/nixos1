@@ -20,11 +20,10 @@
   networking.hostName = "nas-server-vm";
   networking.hostId = "a1b2c3d4";  # Required for ZFS - prevents pool import conflicts
 
-  # Bootloader - VM-specific (likely /dev/sda for VirtualBox/VMware)
-  # Update this after VM installation to match your VM's boot disk
+  # Bootloader - VM-specific (QEMU/KVM uses /dev/vda)
   boot.loader.grub = {
     enable = true;
-    device = "/dev/sda";  # Typical for VM, verify after install
+    device = "/dev/vda";  # QEMU/KVM virtual disk
   };
 
   # Enable flakes
