@@ -22,28 +22,15 @@
   };
 
   # ZFS pool must be created manually (one-time setup):
-  # For VM testing:
-  #   sudo zpool create tank /dev/loop0
+  # For VM testing with virtual disk:
+  #   sudo zpool create tank /dev/vdb
   # For physical server:
   #   sudo zpool create tank /dev/disk/by-id/your-disk-id
   #
-  # Then create datasets:
-  #   sudo zfs create tank/storage
-  #   sudo zfs create tank/storage/sam
-
-  # Declarative mount points (assumes pool already exists)
-  fileSystems."/tank" = {
-    device = "tank";
-    fsType = "zfs";
-  };
-
-  fileSystems."/tank/storage/sam" = {
-    device = "tank/storage/sam";
-    fsType = "zfs";
-  };
-
-  # Set ownership declaratively
-  systemd.tmpfiles.rules = [
-    "d /tank/storage/sam 0755 sam users -"
-  ];
+  # Then create datasets with mount points:
+  #   sudo zfs create -o mountpoint=/tank/storage tank/storage
+  #   sudo zfs create -o mountpoint=/tank/storage/sam tank/storage/sam
+  #   sudo chown sam:users /tank/storage/sam
+  #
+  # ZFS will auto-mount on boot. No NixOS fileSystems entries needed.
 }
