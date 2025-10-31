@@ -2,17 +2,14 @@
 # This file tells sops which keys can decrypt secrets.yaml
 
 keys:
-  # Add your age public key here after generating it
-  # Generate with: nix-shell -p age --run "age-keygen -o ~/.config/sops/age/keys.txt"
-  # Then copy the public key (age1...) here
-  # - &admin_sam age1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  # Sam's age key for encrypting/decrypting secrets
+  - &admin_sam age10cnrk7498x8lfqj6nu6mfpt7ark0msj96950379n7xrex23hhdvqwvfv9f
 
 creation_rules:
   - path_regex: secrets/secrets\.yaml$
     key_groups:
       - age:
-          # - *admin_sam
-          # Add age public keys here
+          - *admin_sam
 
 # After adding your key, encrypt secrets.yaml with:
 # nix-shell -p sops --run "sops secrets/secrets.yaml"
