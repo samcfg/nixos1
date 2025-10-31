@@ -14,16 +14,36 @@
   # Automatic snapshots - point-in-time backups
   services.zfs.autoSnapshot = {
     enable = true;
-    frequent = 4;   # Keep 4 15-minute snapshots
-    hourly = 24;    # Keep 24 hourly snapshots
-    daily = 7;      # Keep 7 daily snapshots
-    weekly = 4;     # Keep 4 weekly snapshots
-    monthly = 12;   # Keep 12 monthly snapshots
+    frequent = 0;   # Disabled - too frequent for home use
+    hourly = 0;     # Disabled
+    daily = 7;      # Keep 7 daily snapshots (1 week)
+    weekly = 3;     # Keep 4 weekly snapshots (1 month)
+    monthly = 3;    # Keep 3 monthly snapshots (3 months)
   };
 
-  # TODO: After hardware setup, create ZFS pool:
-  # sudo zpool create tank /dev/disk/by-id/your-disk
-  # sudo zfs create tank/storage
-  # sudo zfs create tank/storage/sam
-  # sudo chown sam:users /tank/storage/sam
+  # ZFS pool must be created manually (one-time setup):
+  # For VM testing:
+  #   sudo zpool create tank /dev/loop0
+  # For physical server:
+  #   sudo zpool create tank /dev/disk/by-id/your-disk-id
+  #
+  # Then create datasets:
+  #   sudo zfs create tank/storage
+  #   sudo zfs create tank/storage/sam
+
+  # Declarative mount points (assumes pool already exists)
+  fileSystems."/tank" = {
+    device = "tank";
+    fsType = "zfs";
+  };
+
+  fileSystems."/tank/storage/sam" = {
+    device = "tank/storage/sam";
+    fsType = "zfs";
+  };
+
+  # Set ownership declaratively
+  systemd.tmpfiles.rules = [
+    "d /tank/storage/sam 0755 sam users -"
+  ];
 }
