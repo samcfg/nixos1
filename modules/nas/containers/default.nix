@@ -5,7 +5,7 @@
   imports = [
     ./docker.nix
     # ./nextcloud.nix     # Uncomment when ready to set up
-    # ./syncthing.nix     # Uncomment when ready to set up
+    ./syncthing.nix
     # ./vaultwarden.nix   # Uncomment when ready to set up
   ];
 }
