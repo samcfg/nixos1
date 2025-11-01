@@ -4,12 +4,15 @@
 keys:
   # Sam's age key for encrypting/decrypting secrets
   - &admin_sam age10cnrk7498x8lfqj6nu6mfpt7ark0msj96950379n7xrex23hhdvqwvfv9f
+  # NAS VM server key
+  - &nas_server_vm age1c70f8qhua2um0nnk5pzrld5vjelde2lmzukvqwvvjnr9c93ey49qeszeyd
 
 creation_rules:
   - path_regex: secrets/secrets\.yaml$
     key_groups:
       - age:
           - *admin_sam
+          - *nas_server_vm
 
 # After adding your key, encrypt secrets.yaml with:
 # nix-shell -p sops --run "sops secrets/secrets.yaml"
