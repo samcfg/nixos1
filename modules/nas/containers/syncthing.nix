@@ -9,6 +9,7 @@
     configDir = "/home/sam/.config/syncthing";
     overrideDevices = true;
     overrideFolders = true;
+    guiAddress = "0.0.0.0:8384";  # Listen on all interfaces, not just localhost
   };
 
   # Web UI will be on port 8384
