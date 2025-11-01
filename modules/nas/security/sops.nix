@@ -16,6 +16,9 @@
     # bob-password = {};
 
     # Service passwords
+    syncthing-gui-password = {
+      owner = "sam";
+    };
     # nextcloud-admin-password = {};
     # nextcloud-db-password = {};
 
