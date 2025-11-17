@@ -61,6 +61,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/pi-zero/configuration.nix
+          sops-nix.nixosModules.sops
         ];
       };
 
