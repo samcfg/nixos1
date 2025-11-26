@@ -27,7 +27,6 @@
         modules-right = [
           # "network"
           # "bluetooth"
-          "battery"
           "pulseaudio"
           "tray"
           "clock"
@@ -88,17 +87,6 @@
         tray = {
           icon-size = 17;
           spacing = 10;
-        };
-
-        battery = {
-          format = "{icon} {capacity}%";
-          format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-icons = ["" "" "" "" ""];
-          states = {
-            warning = 30;
-            critical = 15;
-          };
         };
 
         pulseaudio = {
