@@ -55,7 +55,6 @@
   time.timeZone = "America/Los_Angeles";
 
   # Desktop services
-  services.desktopManager.gnome.enable = false;
   services.udisks2.enable = true;
   security.polkit.enable = true;
   services.gvfs.enable = true;
