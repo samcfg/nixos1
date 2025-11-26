@@ -57,16 +57,22 @@
 
   programs.nushell = {
     enable = true;
-    settings = {
-      show_banner = false;
-      buffer_editor = "hx";
-    };
+
+    configFile.text = ''
+      $env.config = {
+        show_banner: false
+        buffer_editor: "hx"
+      }
+    '';
+
     envFile.text = ''
       $env.PROMPT_COMMAND = { || $"($env.PWD | path basename)" }
       $env.PROMPT_COMMAND_RIGHT = ""
       $env.EDITOR = "hx"
       $env.VISUAL = "hx"
+      $env.PATH = ($env.PATH | append $"($env.HOME)/go/bin")
     '';
+
     shellAliases = {
       la = "ls -la";
       cat = "bat";
@@ -74,10 +80,6 @@
       mkd = "mkdir";
       zj = "zellij";
     };
-
-    extraEnv = ''
-      $env.PATH = ($env.PATH | append $"($env.HOME)/go/bin")
-    '';
 
     extraConfig = ''
       def nixos-update [host: string, user: string] {
