@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/6794d064edc69918bb0fc0e0eda33ece324be17a";  # nixos-unstable with kernel 6.12.18 - before modules-shrunk bug
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
