@@ -11,7 +11,7 @@
     fd
     bear
     eza
-    gemini-cli
+    # gemini-cli  # Not available in current nixpkgs version
     lazygit
     bat
     gcc
