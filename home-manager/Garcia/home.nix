@@ -8,6 +8,7 @@
     ./waybar.nix
     ./dunst.nix
     ./vscodium.nix
+    ./claude-code.nix
   ];
 
     nixpkgs.config.allowUnfree = true;
