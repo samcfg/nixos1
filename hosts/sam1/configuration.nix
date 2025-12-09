@@ -43,6 +43,33 @@
     };
   };
 
+  # Tailscale - VPN mesh network
+  services.tailscale.enable = true;
+
+  # Samba - File sharing
+  services.samba = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      global = {
+        "workgroup" = "WORKGROUP";
+        "server string" = "sam1 laptop";
+        "security" = "user";
+        "map to guest" = "never";
+      };
+
+      # Share entire home directory
+      "sam" = {
+        "path" = "/home/sam";
+        "browseable" = "yes";
+        "writable" = "yes";
+        "valid users" = "sam";
+        "create mask" = "0644";
+        "directory mask" = "0755";
+      };
+    };
+  };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
