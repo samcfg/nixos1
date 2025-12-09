@@ -41,6 +41,7 @@
         modules = [
           ./hosts/sam1/configuration.nix
           inputs.home-manager.nixosModules.default
+          sops-nix.nixosModules.sops
         ];
       };
 
