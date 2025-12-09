@@ -39,8 +39,8 @@
         inherit system;
         specialArgs = {inherit inputs;};
         modules = [
-          ./hosts/sam/configuration.nix
-          inputs.home-manager.nixosModules.default
+          ./hosts/sam1/configuration.nix
+          # inputs.home-manager.nixosModules.default
         ];
       };
 
