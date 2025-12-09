@@ -13,15 +13,33 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Sops secrets management - test configuration
+  # Sops secrets management
   sops = {
     defaultSopsFile = ../../secrets/secrets.yaml;
     age.keyFile = "/var/lib/sops-nix/key.txt";
 
-    # Test secret - we'll check if this file appears after rebuild
-    secrets.test-secret = {
+    # Syncthing GUI password
+    secrets.syncthing-gui-password = {
       mode = "0440";
       owner = "sam";
+    };
+  };
+
+  # Syncthing - P2P file sync
+  services.syncthing = {
+    enable = true;
+    user = "sam";
+    dataDir = "/home/sam";
+    configDir = "/home/sam/.config/syncthing";
+
+    overrideDevices = true;
+    overrideFolders = true;
+
+    settings = {
+      gui = {
+        user = "sam";
+        # Password will be set from sops secret
+      };
     };
   };
 
@@ -147,8 +165,12 @@
   };
 
   # Open ports in the firewall
-  networking.firewall.allowedTCPPorts = [ 22 ];  # SSH
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    22      # SSH
+    8384    # Syncthing web GUI
+    22000   # Syncthing file transfer
+  ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];  # Syncthing
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
