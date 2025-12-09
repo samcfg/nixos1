@@ -4,7 +4,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nas/security/tailscale.nix
   ];
 
   # Enable flakes
@@ -17,17 +16,6 @@
   networking.hostName = "Garcia";
   networking.networkmanager.enable = true;
   services.blueman.enable = true;
-
-  # Syncthing - peer-to-peer file synchronization
-  services.syncthing = {
-    enable = true;
-    user = "sam";
-    dataDir = "/home/sam/Documents/Notes";
-    configDir = "/home/sam/.config/syncthing";
-    guiAddress = "127.0.0.1:8384";
-    overrideDevices = true;
-    overrideFolders = true;
-  };
 
   hardware.graphics.enable = true;
   hardware.bluetooth = {
@@ -55,6 +43,7 @@
   time.timeZone = "America/Los_Angeles";
 
   # Desktop services
+  services.desktopManager.gnome.enable = false;
   services.udisks2.enable = true;
   security.polkit.enable = true;
   services.gvfs.enable = true;
@@ -121,7 +110,6 @@
     nodejs
     util-linux
     gnome.gvfs
-    cifs-utils      # Samba client tools for mounting NAS shares
   ];
 
   # Development environment manager
@@ -171,5 +159,5 @@
   # Default shell
   users.defaultUserShell = pkgs.nushell;
 
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }

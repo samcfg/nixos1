@@ -2,10 +2,10 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/6794d064edc69918bb0fc0e0eda33ece324be17a";  # nixos-unstable with kernel 6.12.18 - before modules-shrunk bug
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";  # NixOS 25.11 stable with kernel 6.12 LTS
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

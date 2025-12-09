@@ -60,5 +60,5 @@
 
   # This value determines the NixOS release compatibility
   # Don't change this after installation
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }
