@@ -13,9 +13,9 @@
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
-  # Minimal package set for testing
+  # User packages
   home.packages = with pkgs; [
-    nodejs_22  # For npm and claude CLI
+    claude-code  # Anthropic's Claude CLI
   ];
 
   # Basic git configuration
