@@ -15,7 +15,7 @@
 
   # Minimal package set for testing
   home.packages = with pkgs; [
-    # Add user packages here as needed
+    nodejs_22  # For npm and claude CLI
   ];
 
   # Basic git configuration
