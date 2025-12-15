@@ -37,7 +37,24 @@
       # Host with integrated home-manager (current working setup)
       nixosConfigurations.sam = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          hostName = "sam";
+        };
+        modules = [
+          ./hosts/sam1/configuration.nix
+          inputs.home-manager.nixosModules.default
+          sops-nix.nixosModules.sops
+        ];
+      };
+
+      # Second laptop using same config as sam1
+      nixosConfigurations.sam2 = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          hostName = "acer";
+        };
         modules = [
           ./hosts/sam1/configuration.nix
           inputs.home-manager.nixosModules.default

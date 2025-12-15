@@ -20,6 +20,8 @@
   home.packages = with pkgs; [
     claude-code  # Anthropic's Claude CLI
     spotify      # Music streaming
+    discord      # Voice and text chat
+    freetube     # Privacy-focused YouTube client
   ];
 
   # Basic git configuration
@@ -37,6 +39,25 @@
       switch-to-workspace-2 = ["<Super>2"];
       switch-to-workspace-3 = ["<Super>3"];
       switch-to-workspace-4 = ["<Super>4"];
+
+      # Window management
+      close = ["<Super>q"];
+      minimize = ["<Super>x"];
+      toggle-fullscreen = ["<Super>f"];
+    };
+
+    # Disable application switcher keybindings (Super+3 conflict fix)
+    "org/gnome/shell/keybindings" = {
+      toggle-message-tray = [];
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
+      switch-to-application-5 = [];
+      switch-to-application-6 = [];
+      switch-to-application-7 = [];
+      switch-to-application-8 = [];
+      switch-to-application-9 = [];
     };
 
     # Custom keybindings list
@@ -46,6 +67,7 @@
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
       ];
     };
 
@@ -75,6 +97,13 @@
       name = "Spotify";
       command = "spotify";
       binding = "<Super>m";
+    };
+
+    # Super+Enter: New Terminal Window
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4" = {
+      name = "New Terminal";
+      command = "kgx";
+      binding = "<Super>Return";
     };
   };
 }

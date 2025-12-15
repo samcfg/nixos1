@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, hostName ? "nixos", ... }:
 
 {
   imports =
@@ -53,7 +53,7 @@
     settings = {
       global = {
         "workgroup" = "WORKGROUP";
-        "server string" = "sam1 laptop";
+        "server string" = "${hostName} laptop";
         "security" = "user";
         "map to guest" = "never";
       };
@@ -74,7 +74,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = hostName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -196,6 +196,9 @@
     22      # SSH
     8384    # Syncthing web GUI
     22000   # Syncthing file transfer
+    5432    # PostgreSQL (localhost development)
+    8000    # Django dev server
+    5173    # Vite dev server
   ];
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];  # Syncthing
   # Or disable the firewall altogether.
