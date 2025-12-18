@@ -6,6 +6,9 @@ keys:
   - &admin_sam age10cnrk7498x8lfqj6nu6mfpt7ark0msj96950379n7xrex23hhdvqwvfv9f
   # NAS VM server key
   - &nas_server_vm age1c70f8qhua2um0nnk5pzrld5vjelde2lmzukvqwvvjnr9c93ey49qeszeyd
+  # Sam's second laptop (acer) - ADD THIS LINE
+  - &sam2_laptop age1wf9gntl4rjw0gk3rgylzxe96jwe0cpy3a22d3xtfk5u7xn7jhevskxpj5c
+
 
 creation_rules:
   - path_regex: secrets/secrets\.yaml$
@@ -13,6 +16,7 @@ creation_rules:
       - age:
           - *admin_sam
           - *nas_server_vm
+          - *sam2_laptop
 
 # After adding your key, encrypt secrets.yaml with:
 # nix-shell -p sops --run "sops secrets/secrets.yaml"
