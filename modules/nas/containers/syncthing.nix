@@ -5,7 +5,7 @@
   services.syncthing = {
     enable = true;
     user = "sam";
-    dataDir = "/tank/sam";
+    dataDir = "/mnt/storage";
     configDir = "/home/sam/.config/syncthing";
     overrideDevices = true;
     overrideFolders = true;

@@ -31,4 +31,11 @@
 
   # Allow unfree packages (Tailscale, etc.)
   nixpkgs.config.allowUnfree = true;
+
+  # Shared storage from host (Mint PC)
+  fileSystems."/mnt/storage" = {
+    device = "storage";
+    fsType = "9p";
+    options = [ "trans=virtio" "version=9p2000.L" "msize=104857600" ];
+  };
 }
